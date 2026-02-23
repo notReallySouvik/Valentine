@@ -83,33 +83,6 @@ export default function SecondPage({ onNext }: { onNext: () => void }) {
             </p>
           </div>
           {/* CAROUSEL */}
-          <div
-            style={{
-              flex: "1 1 360px",
-              width: "min(48vw, 600px)",               // wider
-              height: "clamp(260px, 42vh, 820px)",     // taller
-              borderRadius: "clamp(14px, 2vw, 24px)",
-              overflow: "hidden",
-            }}
-          >
-            <Carousel interval={3200} fade style={{ height: "100%" }}>
-              {photos.map((photo, i) => (
-                <Carousel.Item key={i} style={{ height: "100%" }}>
-                  <img
-                    src={photo}
-                    alt={`Moment ${i + 1}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      borderRadius: "inherit",
-                      boxShadow: "0 1.4em 3em rgba(0,0,0,0.65)",
-                    }}
-                  />
-                </Carousel.Item>
-              ))}
-            </Carousel>
-          </div>
         </div>
       </main>
 

@@ -126,6 +126,8 @@ export default function CosmicRose() {
         setTimeout(() => (scatter.current = false), 3000)
       }}
       style={{
+        maxWidth: "100vw",
+        maxHeight: "100vh",
         position: "absolute",
         inset: 0,
         zIndex: 1,

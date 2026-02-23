@@ -38,14 +38,7 @@ export default function FirstPage({ onNext }: { onNext: () => void }) {
       }}
     >
       {/* Cosmic Rose */}
-      <div style={{
-        display: "flex",
-        justifyContent: "center", /* Centers horizontally */
-        alignItems: "center",    /* Centers vertically */
-        height: "100vh", width: "100vh", zIndex: 1
-      }}>
-        <CosmicRose />
-      </div>
+      <CosmicRose />
       {/* Body */}
       <main
         style={{
