@@ -1,14 +1,16 @@
+//import React from 'react'
 import { ArrowRightIcon } from "@heroicons/react/24/solid"
-import { Carousel } from "react-bootstrap"
+import { CarouselCrossfadeExample } from "./Carousel"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "@coreui/coreui/dist/css/coreui.min.css" // Ensure CoreUI styles are loaded!
 
 const photos = [
-  "https://images.unsplash.com/photo-1770838917379-32208420ea9a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8",
-  "https://images.unsplash.com/photo-1770009079291-82b8a594ee23?w=900&auto=format&fit=crop&q=80https://images.unsplash.com/photo-1729188430325-eb540fcdd941?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1769990035609-1438883361d9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1770009079291-82b8a594ee23?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzOXx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1770839012299-fb0130e5ec67?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1770753105322-fdca548966b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMjl8fHxlbnwwfHx8fHw%3D",
+  "https://images.unsplash.com/photo-1770838917379-32208420ea9a?w=800&q=80",
+  "https://images.unsplash.com/photo-1729188430325-eb540fcdd941?w=800&q=80",
+  "https://images.unsplash.com/photo-1769990035609-1438883361d9?w=800&q=80",
+  "https://images.unsplash.com/photo-1770009079291-82b8a594ee23?w=800&q=80",
+  "https://images.unsplash.com/photo-1770839012299-fb0130e5ec67?w=800&q=80",
+  "https://images.unsplash.com/photo-1770753105322-fdca548966b0?w=800&q=80",
 ]
 
 export default function SecondPage({ onNext }: { onNext: () => void }) {
@@ -23,7 +25,6 @@ export default function SecondPage({ onNext }: { onNext: () => void }) {
         fontFamily: "'Inter', sans-serif",
       }}
     >
-      {/* MAIN CONTENT */}
       <main
         style={{
           position: "absolute",
@@ -31,7 +32,7 @@ export default function SecondPage({ onNext }: { onNext: () => void }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "clamp(1.5rem, 3.5vw, 4rem)", // reduced vertical padding
+          padding: "clamp(1.5rem, 3.5vw, 4rem)",
           zIndex: 2,
         }}
       >
@@ -44,63 +45,51 @@ export default function SecondPage({ onNext }: { onNext: () => void }) {
             gap: "clamp(1.5rem, 4vw, 4rem)",
             maxWidth: "92vw",
           }}
-        >{/* TEXT BLOCK */}
+        >
+          {/* TEXT BLOCK */}
           <div
             style={{
               flex: "1 1 280px",
               maxWidth: "min(90vw, 520px)",
               textAlign: "center",
-              marginBottom: "clamp(0.6rem, 3vw, 2rem)", // 👈 reduces space ONLY when stacked
             }}
           >
-
             <h1
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(1.8rem, 5.5vw, 3.4rem)",
-                letterSpacing: "clamp(0.08em, 0.3vw, 0.14em)",
-                marginBottom: "clamp(0.6rem, 1.2vw, 1rem)",
-                lineHeight: 1.15,
+                letterSpacing: "0.14em",
+                marginBottom: "1rem",
                 textShadow: "0 0 1em rgba(255,180,200,0.65)",
-                wordBreak: "break-word",
               }}
             >
               OUR MOMENTS
             </h1>
-
-            <p
-              style={{
-                fontSize: "clamp(0.95rem, 2.8vw, 1.35rem)",
-                lineHeight: "clamp(1.4, 3vw, 1.75)",
-                opacity: 0.88,
-                maxWidth: "42ch",
-                margin: "0 auto",
-                textShadow: "0 0 1em rgba(255,180,200,0.35)",
-              }}
-            >
-              Memories we have created together — fragments of time drifting like
-              constellations, always finding their way back to us.
+            <p style={{ fontSize: "1.1rem", opacity: 0.8 }}>
+              Memories we have created together...
             </p>
           </div>
-          {/* CAROUSEL */}
+
+          {/* CAROUSEL - Pass the photos prop here */}
+          <div style={{ flex: "1 1 320px", maxWidth: "min(90vw, 400px)" }}>
+            <CarouselCrossfadeExample photos={photos} />
+          </div>
         </div>
       </main>
 
       {/* NEXT BUTTON */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "clamp(1.5rem, 4vh, 3rem)", // slightly closer
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 2,
-        }}
-      >
+      <div style={{ position: "absolute", bottom: "3rem", left: "50%", transform: "translateX(-50%)", zIndex: 10 }}>
+
+        {/* Circular Next Button with larger Heroicon arrow */}
         <button
           onClick={onNext}
           style={{
-            width: "clamp(58px, 6.5vw, 76px)",
-            height: "clamp(58px, 6.5vw, 76px)",
+            position: "absolute",
+            bottom: "25%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "70px",
+            height: "70px",
             borderRadius: "50%",
             border: "2px solid rgba(255,255,255,0.9)",
             background: "transparent",
@@ -108,16 +97,11 @@ export default function SecondPage({ onNext }: { onNext: () => void }) {
             alignItems: "center",
             justifyContent: "center",
             cursor: "pointer",
+            zIndex: 2,
             boxShadow: "0 0 1.6em rgba(255,180,200,0.45)",
           }}
         >
-          <ArrowRightIcon
-            style={{
-              width: "clamp(28px, 3.2vw, 38px)",
-              height: "clamp(28px, 3.2vw, 38px)",
-              color: "white",
-            }}
-          />
+          <ArrowRightIcon style={{ width: "32px", height: "32px", color: "white" }} />
         </button>
       </div>
     </div>
