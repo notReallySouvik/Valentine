@@ -58,6 +58,7 @@ export default function SecondPage({ onNext }: { onNext: () => void }) {
               style={{
                 fontFamily: "'Playfair Display', serif",
                 fontSize: "clamp(1.8rem, 5.5vw, 3.4rem)",
+                marginTop: "-10%",
                 letterSpacing: "0.14em",
                 marginBottom: "1rem",
                 textShadow: "0 0 1em rgba(255,180,200,0.65)",
@@ -65,45 +66,67 @@ export default function SecondPage({ onNext }: { onNext: () => void }) {
             >
               OUR MOMENTS
             </h1>
-            <p style={{ fontSize: "1.1rem", opacity: 0.8 }}>
+            <p style={{ fontSize: "1.1rem", opacity: 0.8, paddingBottom: "2rem" }}>
               Memories we have created together...
             </p>
-          </div>
+            {/* Circular Next Button with larger Heroicon arrow */}
+            <button
+              onClick={onNext}
+              style={{
+                position: "relative",
+                bottom: "auto",
+                left: "auto",
+                transform: "none",
 
+                // 2. Add spacing from the carousel
+                marginTop: "2rem",
+                marginBottom: "2rem",
+
+                // 3. Keep the visual design
+                width: "70px",
+                height: "70px",
+                borderRadius: "50%",
+                border: "2px solid rgba(255,255,255,0.9)",
+                background: "transparent",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                zIndex: 2,
+                boxShadow: "0 0 1.6em rgba(255,180,200,0.45)",
+
+                // 4. Center it horizontally within the flex parent
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+              onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1.0)")}
+            >
+              <ArrowRightIcon style={{ width: "32px", height: "32px", color: "white" }} />
+            </button>
+          </div>
           {/* CAROUSEL - Pass the photos prop here */}
-          <div style={{ flex: "1 1 320px", maxWidth: "min(90vw, 400px)" }}>
+          <div
+            className="carousel-container-fix"
+            style={{
+              // On mobile: 95% of width. On desktop: around 50-60% of the screen.
+              width: "100%",
+              maxWidth: "min(95vw, 600px)",
+
+              // Adjust height so it doesn't eat the whole screen on mobile
+              maxHeight: "60vh",
+
+              // Reduce padding for mobile so it has room to breathe
+              //padding: "0 0 1rem 1rem",
+
+              marginTop: "-20%",
+              //display: "block",
+            }}
+          >
             <CarouselCrossfadeExample photos={photos} />
           </div>
         </div>
       </main>
-
-      {/* NEXT BUTTON */}
-      <div style={{ position: "absolute", bottom: "3rem", left: "50%", transform: "translateX(-50%)", zIndex: 10 }}>
-
-        {/* Circular Next Button with larger Heroicon arrow */}
-        <button
-          onClick={onNext}
-          style={{
-            position: "absolute",
-            bottom: "25%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "70px",
-            height: "70px",
-            borderRadius: "50%",
-            border: "2px solid rgba(255,255,255,0.9)",
-            background: "transparent",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            zIndex: 2,
-            boxShadow: "0 0 1.6em rgba(255,180,200,0.45)",
-          }}
-        >
-          <ArrowRightIcon style={{ width: "32px", height: "32px", color: "white" }} />
-        </button>
-      </div>
     </div>
   )
 }

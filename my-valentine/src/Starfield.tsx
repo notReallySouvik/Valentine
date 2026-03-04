@@ -31,7 +31,7 @@ export default function Starfield() {
     let w = (canvas.width = window.innerWidth)
     let h = (canvas.height = window.innerHeight)
 
-    const STAR_COUNT = 900
+    const STAR_COUNT = 500
     const stars: Star[] = []
 
     for (let i = 0; i < STAR_COUNT; i++) {
