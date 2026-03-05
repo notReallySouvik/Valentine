@@ -1,11 +1,11 @@
-# Valentine Web Experience ❤️
+# Valentine Web Experience
 
 A cinematic interactive Valentine's Day web experience built with **React + TypeScript**.
 Designed as a multi‑page emotional journey combining animation, music, and visual storytelling.
 
 ---
 
-## ✨ Overview
+##  Overview
 
 This project is a single‑page application that presents a four‑scene Valentine's experience:
 
@@ -18,7 +18,7 @@ The site uses smooth page transitions, animated hearts, and a starfield backgrou
 
 ---
 
-## 🌌 Features
+##  Features
 
 ### Smooth Cinematic Transitions
 
@@ -46,7 +46,7 @@ Designed to remain visually consistent across screen sizes.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 * **React**
 * **TypeScript**
@@ -56,7 +56,7 @@ Designed to remain visually consistent across screen sizes.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -70,7 +70,7 @@ src/
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 Clone the repository:
 
@@ -98,7 +98,7 @@ npm run build
 
 ---
 
-## 💡 Inspiration
+##  Inspiration
 
 This project explores how **small details — motion, atmosphere, music, and typography — can transform a simple webpage into an emotional experience.**
 
@@ -106,7 +106,7 @@ It began as a simple Valentine's idea and slowly evolved into a fully animated i
 
 ---
 
-## ❤️ Made With Love
+##  Made With Love
 
 Created as a personal Valentine's web project.
 
@@ -114,6 +114,6 @@ Sometimes the smallest ideas end up becoming the most memorable ones.
 
 ---
 
-## 📜 License
+##  License
 
 This project is open source and available under the GNU General Public License (GPL) License.
