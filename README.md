@@ -5,6 +5,10 @@ Designed as a multi‑page emotional journey combining animation, music, and vis
 
 ---
 
+Hosted in Vercel: https://valentine-beryl-theta-24.vercel.app/
+
+---
+
 ##  Overview
 
 This project is a single‑page application that presents a four‑scene Valentine's experience:
