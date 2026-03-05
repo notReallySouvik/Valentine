@@ -1,8 +1,10 @@
 import { useState } from "react"
 import FirstPage from "./FirstPage"
 import SecondPage from "./SecondPage"
+import ThirdPage from "./ThirdPage"
+import FourthPage from "./FourthPage"
 import Starfield from "./Starfield"
-// Heart SVG with heartbeat animation
+
 const HeartSVG = ({ size = 20 }: { size?: number }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -21,48 +23,109 @@ const HeartSVG = ({ size = 20 }: { size?: number }) => (
 )
 
 export default function App() {
-  const [page, setPage] = useState<"first" | "second">("first")
+  const [page, setPage] = useState<
+    "first" | "second" | "third" | "fourth"
+  >("first")
+
+  const pageStyle = (active: boolean): React.CSSProperties => ({
+    position: "absolute",
+    inset: 0,
+    transition: "opacity 0.9s ease, transform 0.9s ease",
+    opacity: active ? 1 : 0,
+    transform: active ? "translateY(0px)" : "translateY(40px)",
+    pointerEvents: active ? "auto" : "none",
+  })
 
   return (
     <>
-      {/* Starfield */}
       <Starfield />
-      <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden", fontFamily: "'Open Sans', sans-serif", color: "white" }}>
 
+      <div
+        style={{
+          position: "relative",
+          width: "100vw",
+          height: "100vh",
+          overflow: "hidden",
+          fontFamily: "'Open Sans', sans-serif",
+          color: "white",
+        }}
+      >
         {/* Header */}
-        <header style={{ position: "absolute", top: "1.5rem", left: "1.5rem", fontSize: "1.4rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.4rem", textShadow: "0 0 8px rgba(255,100,120,0.7)", zIndex: 2 }}>
+        <header
+          style={{
+            position: "absolute",
+            top: "1.5rem",
+            left: "1.5rem",
+            fontSize: "1.4rem",
+            fontWeight: 600,
+            display: "flex",
+            alignItems: "center",
+            gap: "0.4rem",
+            textShadow: "0 0 8px rgba(255,100,120,0.7)",
+            zIndex: 5,
+          }}
+        >
           <HeartSVG size={24} /> For my Valentine
         </header>
 
-        {page === "first" && <FirstPage onNext={() => setPage("second")} />}
-        {page === "second" && <SecondPage onNext={() => setPage("first")} />}
+        {/* Pages */}
+        <div style={pageStyle(page === "first")}>
+          <FirstPage onNext={() => setPage("second")} />
+        </div>
 
-      {/* Footer */}
-      <footer
-        style={{
-          position: "absolute",
-          bottom: "1.5rem",
-          left: "0",
-          right: "0",
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "0 2rem",
-          paddingRight: "2.5rem",
-          fontSize: "0.95rem",
-          fontWeight: 500,
-          color: "white",
-          zIndex: 2,
-          boxSizing: "border-box",
-        }}
-      >
-        <span style={{ display: "flex", alignItems: "center", gap: "0.25rem", textShadow: "0 0 8px rgba(255,180,200,0.6)" }}>
-          <HeartSVG size={18} /> MADE WITH LOVE
-        </span>
-        <span style={{ color: "white", fontSize: "1rem", fontWeight: 600, textShadow: "0 0 12px rgba(255,100,120,0.8), 0 0 20px rgba(255,100,120,0.6)" }}>2026</span>
-      </footer>
+        <div style={pageStyle(page === "second")}>
+          <SecondPage onNext={() => setPage("third")} />
+        </div>
 
-      {/* Heartbeat animation */}
-      <style>{`
+        <div style={pageStyle(page === "third")}>
+          <ThirdPage onNext={() => setPage("fourth")} />
+        </div>
+
+        <div style={pageStyle(page === "fourth")}>
+          <FourthPage onNext={() => setPage("first")} />
+        </div>
+
+        {/* Footer */}
+        <footer
+          style={{
+            position: "absolute",
+            bottom: "1.5rem",
+            left: "0",
+            right: "0",
+            display: "flex",
+            justifyContent: "space-between",
+            padding: "0 2rem",
+            paddingRight: "2.5rem",
+            fontSize: "0.95rem",
+            fontWeight: 500,
+            zIndex: 5,
+            boxSizing: "border-box",
+          }}
+        >
+          <span
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.25rem",
+              textShadow: "0 0 8px rgba(255,180,200,0.6)",
+            }}
+          >
+            <HeartSVG size={18} /> MADE WITH LOVE
+          </span>
+
+          <span
+            style={{
+              fontSize: "1rem",
+              fontWeight: 600,
+              textShadow:
+                "0 0 12px rgba(255,100,120,0.8), 0 0 20px rgba(255,100,120,0.6)",
+            }}
+          >
+            2026
+          </span>
+        </footer>
+
+        <style>{`
         @keyframes heartbeat {
           0% { transform: scale(1); }
           25% { transform: scale(1.2); }
